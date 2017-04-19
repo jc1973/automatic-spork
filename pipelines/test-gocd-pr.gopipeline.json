@@ -46,7 +46,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "echo",
-              "arguments": [ "hello" ],
+              "arguments": [ "PR" ],
               "working_directory": null
             }
           ]
