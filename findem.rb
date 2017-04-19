@@ -45,7 +45,7 @@ files.each do |file|
 #  puts pipeline
 # now write the file back with the name 'auto-pr-[filename]'
   puts file
-  m = file.match(/(.*)\/(\w+.*)/)
+  m = file.match(/(.*)\/(.*)/)
 #  puts m[1]
 #  puts m[0]
 #  puts m[2]
