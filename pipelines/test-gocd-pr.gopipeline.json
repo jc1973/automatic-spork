@@ -40,7 +40,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "echo",
-              "arguments": [ "test-PR" ],
+              "arguments": [ "test-PR-2:30" ],
               "working_directory": null
             }
           ]
