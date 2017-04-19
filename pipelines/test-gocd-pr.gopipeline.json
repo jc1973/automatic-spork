@@ -11,6 +11,7 @@
     },
     {
       "scm_id": "bb9d6ce2-6019-4440-835d-6bb7a8ee4fef",
+      "url": "git@github.com:jc1973/automatic-spork.git",
       "destination": "pr-build",
       "name": "pr-build",
       "type": "git"
