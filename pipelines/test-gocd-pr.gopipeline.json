@@ -45,7 +45,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "echo",
-              "arguments": [ "hello" ],
+              "arguments": [ "pr-build" ],
               "working_directory": null
             }
           ]
