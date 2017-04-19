@@ -32,8 +32,11 @@ puts node['js-identity']['gocd']['server']['scm']
 files.each do |file|
   config_file = File.read(file)
   pipeline = JSON.parse(config_file)
+  pipeline['name'].prepend('pr-build-')
   pipeline['materials'].each do |material|
     material['scm_id'] = node['js-identity']['gocd']['server']['scm'][material['url']] if material['type'] == 'git'
+    material['destination'] = 'pr-build' if material['type'] == 'git'
+    material['name'] = 'pr-build' if material['type'] == 'git'
     material['type'] = 'plugin' if material['type'] == 'git'
     puts material['scm_id']
   end
