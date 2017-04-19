@@ -42,8 +42,15 @@ files.each do |file|
     end
     #puts material['scm_id']
   end
-  puts pipeline
+#  puts pipeline
 # now write the file back with the name 'auto-pr-[filename]'
+  puts file
+  m = file.match(/(.*)\/(\w+.*)/)
+#  puts m[1]
+#  puts m[0]
+#  puts m[2]
+  newfilename = "#{m[1]}\/auto-pr-#{m[2]}"
+  puts newfilename
   
 end
 
