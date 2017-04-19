@@ -28,19 +28,22 @@ node = { 'js-identity' => { 'gocd' => { 'server' => { 'scm' => { 'git@github.com
             'git@github.com:jc1973/bookish-octo-barnacle.git' => 'b02d1bed-c5d5-4ca9-9617-a6ccad5b4bda',
             'git@github.com:jc1973/automatic-spork.git' => 'bb9d6ce2-6019-4440-835d-6bb7a8ee4fef' } } } } }
 
-puts node['js-identity']['gocd']['server']['scm']
+#puts node['js-identity']['gocd']['server']['scm']
 files.each do |file|
   config_file = File.read(file)
   pipeline = JSON.parse(config_file)
   pipeline['name'].prepend('pr-build-')
   pipeline['materials'].each do |material|
-    material['scm_id'] = node['js-identity']['gocd']['server']['scm'][material['url']] if material['type'] == 'git'
-    material['destination'] = 'pr-build' if material['type'] == 'git'
-    material['name'] = 'pr-build' if material['type'] == 'git'
-    material['type'] = 'plugin' if material['type'] == 'git'
-    puts material['scm_id']
+    if node['js-identity']['gocd']['server']['scm'].key?(material['url'])
+      material['scm_id'] = node['js-identity']['gocd']['server']['scm'][material['url']] if material['type'] == 'git'
+      material['destination'] = 'pr-build' if material['type'] == 'git'
+      material['name'] = 'pr-build' if material['type'] == 'git'
+      material['type'] = 'plugin' if material['type'] == 'git'
+    end
+    #puts material['scm_id']
   end
   puts pipeline
+# now write the file back with the name 'auto-pr-[filename]'
   
 end
 
