@@ -1,0 +1,49 @@
+{
+  "name": "my-test-pr",
+  "environment_variables": [],
+  "group" : "gotest",
+  "auto_pr": true,
+  "materials": [
+    {
+      "url": "git@github.com:jc1973/automatic-spork.git",
+      "type": "git"
+    }
+  ],
+  "stages": [
+    {
+      "name": "test-auto-pipe",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "manual",
+        "users": [],
+        "roles": [
+        ]
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "hello",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "echo",
+              "arguments": [ "test-auto-pipe" ],
+              "working_directory": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
