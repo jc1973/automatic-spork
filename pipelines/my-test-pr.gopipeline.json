@@ -39,7 +39,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "echo",
-              "arguments": [ "test-auto-pipe" ],
+              "arguments": [ "test-auto-pipe-2" ],
               "working_directory": null
             }
           ]
