@@ -32,6 +32,7 @@ node = { 'js-identity' => { 'gocd' => { 'server' => { 'scm' => { 'git@github.com
 files.each do |file|
   config_file = File.read(file)
   pipeline = JSON.parse(config_file)
+  next unless pipeline['auto_pr']
   pipeline['name'].prepend('pr-build-')
   pipeline['materials'].each do |material|
     if node['js-identity']['gocd']['server']['scm'].key?(material['url'])
