@@ -42,15 +42,21 @@ files.each do |file|
     end
     #puts material['scm_id']
   end
+  pipeline['stages'].each do |stage|
+    stage.delete_if { |key, value| key == "approval" }
+  end
+  
+
+  
 #  puts pipeline
 # now write the file back with the name 'auto-pr-[filename]'
 #  puts file
-#  m = file.match(/(.*)\/(.*)/)
+  m = file.match(/(.*)\/(.*)/)
 #  puts m[1]
 #  puts m[0]
 #  puts m[2]
-#  newfilename = "#{m[1]}\/auto-pr-#{m[2]}"
-#  puts newfilename
+  newfilename = "#{m[1]}\/auto-pr-#{m[2]}"
+  puts newfilename
 
   open(newfilename, 'w') do |f|
     f.puts JSON.generate(pipeline)
