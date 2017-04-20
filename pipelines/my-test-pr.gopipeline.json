@@ -1,4 +1,5 @@
 {
+  "dummy": false,
   "name": "my-test-pr",
   "environment_variables": [],
   "group" : "gotest",
