@@ -2,6 +2,7 @@
   "name": "pr-build-test-scm",
   "environment_variables": [],
   "group" : "gotest",
+  "auto_pr": false,
   "materials": [
     {
       "scm_id": "bb9d6ce2-6019-4440-835d-6bb7a8ee4fef",
