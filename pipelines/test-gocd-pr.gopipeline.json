@@ -35,7 +35,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "echo",
-              "arguments": [ "origin" ],
+              "arguments": [ "new-pr" ],
               "working_directory": null
             }
           ]
