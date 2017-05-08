@@ -1,0 +1,25 @@
+  <pipelines group="ami-builder-xml">
+    <pipeline name="testme-again" isLocked="false">
+      <materials>
+        <git url="git@github.com:jc1973/fluffy-octo-computing-machine.git" shallowClone="true" />
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="echo">
+                <arg>hello</arg>
+                <arg>&gt;</arg>
+                <arg>file.txt</arg>
+              </exec>
+            </tasks>
+            <artifacts>
+              <test src="file.txt" dest="/home/go/" />
+              <artifact src="file.txt" dest="/tmp/" />
+              <artifact src="asdf" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
