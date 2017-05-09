@@ -1,3 +1,4 @@
+<blah>
   <pipelines group="ami-builder-xml">
     <pipeline name="testme-again" isLocked="false">
       <materials>
